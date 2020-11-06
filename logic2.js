@@ -1,14 +1,8 @@
-// Overview
-// Below is a very common format for Leaflet
-//
-// I like to define all the functions at the top of my scripts because I can view what the functions does before
-// reading the code.  When putting a function at the top of the page, you may need to be carefull about the order
-// of the functions.  Most of the time you can have functions anywhere - at the bottom, top or in the middle of
-// the code.  One exception is if a user defined function is also used inside a user defined function then the function
-// loading might be affected.  
+
 
 // Javascipt Order Article:  https://www.jsdiaries.com/does-javascript-function-order-matter/
-
+// Completed with Erin T/A, Chioma, and Carol from Tues/Thurs Class. 
+// url for legend code: https://leafletjs.com/examples/choropleth/
 
 
 // Store our API endpoint inside queryUrl
@@ -152,39 +146,3 @@ d3.json(queryUrl, function(data) {
 
 legend.addTo(myMap);
 });
-
-
-// Another good example is Day 3 Citibike; I slacked out a linear version of the code that does not include all the functions.
-// Just like onEachFeature, there are other options that can be included, see the documentation
-// https://leafletjs.com/reference-1.7.1.html#geojson-option 
-// https://leafletjs.com/examples/geojson/
-
-// Here is a common structure
-
-// Step 1: Define Tile Layers
-// Step 2.  Define Basemaps
-// Step 3:  Define Leaflet map with default layers included 
-// Step 4:  If there is only one tile then Add one tile with Addto(map); in L.control use null as first parameter
-// Step 5:  Create a layer for each dataset that can be used as an overlay in the controls
-// Step 5.  Add Overlays
-// Step 6.  Add controls to L; Use null for first term if only one tile (see Step4 and this example)
-//Step 7.  Load GeoJson via d3.json so that the file is loaded
-	// Step 8.  Add data to map via geojson
-	// Step 8a.  May include these options.. see https://leafletjs.com/reference-1.7.1.html#geojson-option
-  //    pointToLayer - change from default marker - see pointToLayer example here https://leafletjs.com/examples/geojson/ especially geojsonMarkerOptions definition; this variable could also be set to the style:; look up examples via google
-  //    style  - example of use in Day 2 Activity 1; but styles the marker/feature; look up examples in conjunction with pointToLayer
-  //    onEachFeature - many examples mostly of popups; action that occurs when marker is clicked on the map
-  //    filter - not used in activites or in the homework
-// Step 8b.  addTo(layer***)     Note:  not map; choose a layer group
-// Step 9.  Add layergroup to map with addTo(map)
-
-// Pulling info from Day 3 Activity 1 Advanced
-
-// Step 10.  Create legend
-// Step 11.  Use onAdd to include legend + DomUtil.create
-// Step 12.  Add legend to map with .addTo(map)
-
-// IF there are more data to be added and it is unrelated to first data set then steps 7-9 can be mimicked.
-// Always check the data to see what type of json data it is.  L.geoJson() will map whatever geometries found in a
-// json or geojson file.  If it is a geometry.type of polygon then it will be an enclosed shape; if it is a Linestring then it will be multiple lines connected, etc.
-
